@@ -1,2 +1,2 @@
-# api-testing-postman-collections
-A curated set of Postman collections demonstrating API testing workflows. Covers GET/POST/PUT/DELETE requests, authentication, environment setup, and reusable test cases
+# api-testing-postman-collections-for-serviceNow
+This project demonstrates API testing with Postman by interacting with a ServiceNow Developer Instance. It includes collections that perform full CRUD operations (Create, Read, Update, Delete) on ServiceNow records through the Table API. The workflow covers authentication, request setup, JSON payload handling, and automated test scripts to validate responses. This repository serves as a practical example of using Postman for comprehensive REST API testing in real‑world QA scenarios.
