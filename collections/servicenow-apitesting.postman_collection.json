@@ -1,0 +1,402 @@
+{
+	"info": {
+		"_postman_id": "6e13069d-aa2a-47ce-87f1-511cf5b3253b",
+		"name": "servicenow-apitesting",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40420885"
+	},
+	"item": [
+		{
+			"name": "API_TC_Incident_001",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"validateStatus code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"validate status code has 'OK'\", function () {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"validate response time is less than 3000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(3000);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "Password@171",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://dev322406.service-now.com/api/now/table/:tablename",
+					"protocol": "https",
+					"host": [
+						"dev322406",
+						"service-now",
+						"com"
+					],
+					"path": [
+						"api",
+						"now",
+						"table",
+						":tablename"
+					],
+					"variable": [
+						{
+							"key": "tablename",
+							"value": "incident"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API_TC_Incident_002",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"validate status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"validate status code name has 'OK'\", function () {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"pm.test(\"validate response time is less than 50000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(5000);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "Password@171",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://dev322406.service-now.com/api/now/table/:tablename",
+					"protocol": "https",
+					"host": [
+						"dev322406",
+						"service-now",
+						"com"
+					],
+					"path": [
+						"api",
+						"now",
+						"table",
+						":tablename"
+					],
+					"variable": [
+						{
+							"key": "tablename",
+							"value": "incident"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API_TC_Incident_003",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"validate status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"validate status code name has 'OK'\", function () {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"pm.test(\"validate response time is less than 50000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(5000);\r",
+							"});\r",
+							"let jsonSrc = pm.response.json();\r",
+							"pm.test(\"validate response body contains sys_id as '1c832706732023002728660c4cf6a7b9'\", function () {\r",
+							"    pm.expect(jsonSrc.result.sys_id).to.eql(\"1c832706732023002728660c4cf6a7b9\");\r",
+							"    pm.expect(jsonSrc.result.number).to.equal(\"INC0009002\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "Password@171",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://dev322406.service-now.com/api/now/table/:tablename/:sys_id",
+					"protocol": "https",
+					"host": [
+						"dev322406",
+						"service-now",
+						"com"
+					],
+					"path": [
+						"api",
+						"now",
+						"table",
+						":tablename",
+						":sys_id"
+					],
+					"variable": [
+						{
+							"key": "tablename",
+							"value": "incident"
+						},
+						{
+							"key": "sys_id",
+							"value": "1c832706732023002728660c4cf6a7b9"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API_TC_Incident_004",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"validate status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"validate status code name has 'OK'\", function () {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"pm.test(\"validate response time is less than 50000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(5000);\r",
+							"});\r",
+							"let jsonSrc = pm.response.json();\r",
+							"pm.test(\"validate response body contains sys_id as '1c832706732023002728660c4cf6a7b9'\", function () {\r",
+							"    pm.expect(jsonSrc.result.sys_id).to.eql(\"1c832706732023002728660c4cf6a7b9\");\r",
+							"    pm.expect(jsonSrc.result.number).to.equal(\"INC0009002\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "Password@171",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://dev322406.service-now.com/api/now/table/:tablename/:sys_id",
+					"protocol": "https",
+					"host": [
+						"dev322406",
+						"service-now",
+						"com"
+					],
+					"path": [
+						"api",
+						"now",
+						"table",
+						":tablename",
+						":sys_id"
+					],
+					"variable": [
+						{
+							"key": "tablename",
+							"value": "incident"
+						},
+						{
+							"key": "sys_id",
+							"value": "1c832706732023002728660c4cf6a7b9"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "API_TC_Incident_005",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"validate status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"pm.test(\"validate status code name has 'Created'\", function () {\r",
+							"    pm.response.to.have.status(\"Created\");\r",
+							"});\r",
+							"pm.test(\"validate response time is less than 50000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(5000);\r",
+							"});\r",
+							"let jsonSrc = pm.response.json();\r",
+							"pm.test(\"validate response body contains category as 'Hardware'\", function () {\r",
+							"    pm.expect(jsonSrc.result.number).to.contain(\"INC\");\r",
+							"    //pm.expect(jsonSrc.result.short_description).to.contain(\"This incident is created\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "Password@171",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"short_description\": \"This incident is created from postman api client\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dev322406.service-now.com/api/now/table/:tablename",
+					"protocol": "https",
+					"host": [
+						"dev322406",
+						"service-now",
+						"com"
+					],
+					"path": [
+						"api",
+						"now",
+						"table",
+						":tablename"
+					],
+					"variable": [
+						{
+							"key": "tablename",
+							"value": "incident"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
